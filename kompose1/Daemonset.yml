@@ -1,13 +1,11 @@
 ---
 apiVersion: apps/v1
-kind: Deployment
+kind: DaemonSet
 metadata:
-  name: nginx-deployment
+  name: nginx-daemonset
   labels:
     type: proxy
-    author: intelliqit
 spec:
-  replicas: 3
   selector:
     matchLabels:
       type: proxy
@@ -17,12 +15,10 @@ spec:
       labels:
         type: proxy
     spec:
-     containers:
-       - name: mynginx
-         image: nginx
+      containers:
+        - name: mynginx
+          image: nginx
 ...
-
-
 
 
 
